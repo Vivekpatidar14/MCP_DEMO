@@ -1,0 +1,11 @@
+# ticket-to-pr-demo — Cursor rules
+
+- Always use TypeScript strict types; never use `any`. Prefer `unknown` plus narrowing or Zod.
+- All API route handlers must validate request query/body parameters with Zod before use.
+- All MCP tool responses must be validated with Zod (or safeParse with explicit fallbacks) before use in domain logic.
+- Use named exports for components. Default exports are reserved for Next.js `page.tsx`, `layout.tsx`, and route config files only.
+- Component props must use a named interface (for example `TicketCardProps`, `WorkflowPanelProps`).
+- Do not use `console.log` in production code paths; use `logger` from `@/lib/logger` for diagnostics.
+- All async operations must use try/catch (or equivalent) at API boundaries and surface user-facing errors via HTTP status + JSON or UI toasts.
+- Use `cn()` from `@/lib/utils` for conditional Tailwind class names.
+- Prefer Tailwind utility classes for styling; avoid inline `style={}` in application components (third-party widget defaults may differ).
